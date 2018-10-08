@@ -1,17 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  html {
-    span {
-      color: red;
-    }
+  span {
+    color: red;
   }
 `
 
-ReactDOM.render(<div>
-  <span>THIS TEXT SHOULD BE red</span>
-  <GlobalStyle />
-</div>, document.getElementById('app'))
+const Container = styled.div`
+  display: flex;
+  padding: 100px;
+  justify-content: center;
+  > span {
+    font-size: 2rem;
+  }
+`
+
+const App = _ => (
+  <Container>
+    <span>THIS SHOULD BE RED</span>
+    <GlobalStyle />
+  </Container>
+)
+
+ReactDOM.render(<App />, document.getElementById('app'))
